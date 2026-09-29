@@ -1,1 +1,43 @@
 
+public class zakat {
+    public static void main(String[] args) {
+        
+        int[] Penghasilan = {
+            2400000, 2400000, 2400000, 2400000, 2400000, 2400000, 2400000, 2400000, 2400000, 2400000, 2400000, 2400000
+        };
+
+        int[] Pengeluaran = {
+            1800000, 1800000, 1800000, 1800000, 1800000, 1800000, 1800000, 1800000,  1800000, 1800000, 1800000, 1800000
+        };
+
+        long totalPenghasilan = 0;
+        long totalPengeluaran = 0;
+
+        for (int i = 0; i < 12; i++) {
+            totalPenghasilan += Penghasilan[i];
+            totalPengeluaran += Pengeluaran[i];
+        }
+
+        long surplus = totalPenghasilan - totalPengeluaran;
+
+        long nisab = 21250000;
+
+        String kategori;
+        long zakat;
+
+        if (surplus >= nisab) {
+            kategori = "MUZAKKI (KAYA)";
+            zakat = (long) (surplus * 0.025);
+        } else {
+            kategori = "MUSTAHIK (MISKIN)";
+            zakat = 0;
+        }
+
+        System.out.println("Total Penghasilan : " + totalPenghasilan);
+        System.out.println("Total Pengeluaran : " + totalPengeluaran);
+        System.out.println("Surplus           : " + surplus);
+        System.out.println("Nisab             : " + nisab);
+        System.out.println("Kategori          : " + kategori);
+        System.out.println("Zakat             : " + zakat);
+    }
+}
